@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Link, Button } from '@material-ui/core';
 import { fade, makeStyles } from '@material-ui/core/styles';
 
 import styles from './Navbar.module.css';
-import Logo from '../../images/logo.png'
+// import Logo from '../../images/logo.png'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+  },
+  link: {
+    margin: theme.spacing(1, 1.5),
   },
   search: {
     position: 'relative',
@@ -67,16 +70,25 @@ export default function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" color='default'>
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            <img src={Logo} alt="COVID-19" className={styles.logo} />
+            <a href="/"><img src='https://techincent.com/wp-content/uploads/2019/10/techincent-1.png' alt="Tech Incent COVID-19" className={styles.logo} /></a>
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              
-            </div>
-          </div>
+          <nav>
+            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+              Features
+            </Link>
+            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+              Enterprise
+            </Link>
+            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+              Support
+            </Link>
+          </nav>
+          <Button href="http://techincent.com/corona" color="primary" variant="outlined" className={classes.link}>
+            Corona
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
