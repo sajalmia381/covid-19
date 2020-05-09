@@ -1,0 +1,12 @@
+.container{
+    background-color: rgba(250, 250, 250);
+    width: 100%;
+    max-width: 768px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 50px auto;
+}
+.chartTitle{
+    margin-top: 0;
+}

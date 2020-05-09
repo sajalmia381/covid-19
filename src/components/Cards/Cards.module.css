@@ -1,0 +1,27 @@
+.container{
+    margin: 80px 0;
+}
+
+.card{
+    margin: 0 2%!important;
+    border-bottom: 10px solid;
+}
+
+.infected{
+    border-bottom-color: rgba(0, 0, 225, .5);
+}
+.infectedLabel {
+    color: rgba(0, 0, 225, .5);
+}
+.recover{
+    border-bottom-color: rgba(0, 225, 0, .5);
+}
+.recoverLabel{
+    color:  rgba(0, 225, 0, 1);
+}
+.deaths {
+    border-bottom-color: rgba(225, 0, 0, .5);
+}
+.deathsLabel{
+    color: rgba(225, 0, 0, .5);
+}

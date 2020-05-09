@@ -1,0 +1,18 @@
+.container{
+    margin: 50px 0;
+    justify-content: center;
+    display: flex!important;
+}
+
+.select select{
+    padding: 12px 24px 10px 15px;
+    background-color: rgba(0, 0, 0, .05)!important;
+}
+
+.select option {
+    background-color: rgba(0, 0, 0, .05)!important;
+}
+
+.formGroup{
+    align-items: center;
+}
