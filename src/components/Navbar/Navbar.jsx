@@ -76,14 +76,8 @@ export default function NavBar() {
             <a href="/"><img src='https://techincent.com/wp-content/uploads/2019/10/techincent-1.png' alt="Tech Incent COVID-19" className={styles.logo} /></a>
           </Typography>
           <nav>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Features
-            </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Enterprise
-            </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Support
+            <Link variant="button" color="textPrimary" href="https://techincent.com/blog" className={classes.link}>
+              Blog
             </Link>
           </nav>
           <Button href="http://techincent.com/corona" color="primary" variant="outlined" className={classes.link}>

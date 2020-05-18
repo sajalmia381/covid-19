@@ -8,7 +8,7 @@ import styles from './Chart.module.css';
 
 
 const Chart = ({data: {confirmed, recovered, deaths}, country}) => {
-    const [dailyData, setDailyData ] = useState([])
+    const [ dailyData, setDailyData ] = useState([])
     
     useEffect(() => {
         const fetchAPI = async () => {
@@ -16,25 +16,26 @@ const Chart = ({data: {confirmed, recovered, deaths}, country}) => {
         }
         fetchAPI()
     }, [])
-
     const dailyLineChart = (
         dailyData.length !== 0 
         ? <Line 
         data={{
             labels: dailyData.map(({date}) => date),
-            datasets: [{
-                data: dailyData.map(({confirmed}) => confirmed),
-                label: 'infected',
-                borderColor: '#3333ff',
-                fill: true
+            datasets: [
+                {
+                    data: dailyData.map(({confirmed}) => confirmed),
+                    label: 'Infected',
+                    borderColor: '#3333ff',
+                    fill: true
+                },
+                {
+                    data: dailyData.map(({deaths}) => deaths),
+                    label: 'Deaths',
+                    borderColor: 'rgba(255, 0, 0, .5)',
+                    fill: true
 
-            }, {
-                data: dailyData.map(({deaths}) => deaths),
-                label: 'Deaths',
-                borderColor: 'rgba(255, 0, 0, .5)',
-                fill: true
-
-            }]
+                }
+            ]
         }}
         /> : null
     )
@@ -56,10 +57,12 @@ const Chart = ({data: {confirmed, recovered, deaths}, country}) => {
         /> : null
     )
     const showChart = (
-        country ? <div>
-            <h3 className={styles.chartTitle}>Data of {country}</h3>
-            {barCountryChart}
-        </div> : <div>
+        country ? (
+            <div className={styles.barChart}>
+                <h3 className={styles.chartTitle}>Data of {country}</h3>
+                {barCountryChart}
+            </div>
+        ) : <div className={styles.lineChart}>
             <h3 className={styles.chartTitle}>Daily COVID 2019 Data</h3>
             {dailyLineChart}
         </div>
