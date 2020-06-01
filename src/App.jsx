@@ -15,8 +15,12 @@ class App extends React.Component {
   }
 
   async componentDidMount(){
-    ReactGa.initialize('UA-144995697-1');
-    ReactGa.pageview(window.location.pathname + window.location.search)
+    if(process.env.NODE_ENV === 'production') {
+      if (process.env.GOOGLE_ANALYTIC_ID) {
+        ReactGa.initialize(process.env.GOOGLE_ANALYTIC_ID);
+        ReactGa.pageview(window.location.pathname + window.location.search)
+      }
+    }
     let data = await fetchData()
     this.setState({data: data})
   }
@@ -27,7 +31,6 @@ class App extends React.Component {
 
   render() {
     const { data, country } = this.state;
-
     return <div className={styles.container}>
         <Navbar/>
         <Cards data={data}/>
